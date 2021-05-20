@@ -31,7 +31,7 @@ app.use(passport.initialize());
 
 app.use(passport.session());
 
-mongoose.connect("mongodb+srv://admin-ritwik:Rishi_012@cluster0.t2i1d.mongodb.net/userDB", { useNewUrlParser: true },{ useUnifiedTopology: true })
+mongoose.connect("mongodb+srv://admin-ritwik:Rishi_012@cluster0.t2i1d.mongodb.net/userDB", { useNewUrlParser: true }, { useUnifiedTopology: true })
 mongoose.set("useCreateIndex", true);
 
 
@@ -103,13 +103,13 @@ app.get("/register", function (req, res) {
 });
 
 app.get("/secrets", function (req, res) {
-    User.find({ "secret": { $ne: null } },function(err, found){
-        if(err){
+    User.find({ "secret": { $ne: null } }, function (err, found) {
+        if (err) {
             console.log(err);
-        }else{
-            if(found){
-                res.render("secrets", {userWithSecrets: found});
-           }
+        } else {
+            if (found) {
+                res.render("secrets", { userWithSecrets: found });
+            }
         }
     });
 });
@@ -179,7 +179,7 @@ app.post("/login", function (req, res) {
 });
 
 let port = process.env.PORT;
-if(port == null || port == ""){
+if (port == null || port == "") {
     port = 3000;
 }
 
